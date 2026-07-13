@@ -38,4 +38,6 @@
     <!-- Permissions -->
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Allows the app to access the device microphone hardware -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />    
 </manifest>
