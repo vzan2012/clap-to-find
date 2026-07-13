@@ -38,6 +38,10 @@
     <!-- Permissions -->
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- ADD THIS LINE: Required by Android WebViews to handle audio hardware streams -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
     <!-- Allows the app to access the device microphone hardware -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />    
 </manifest>
