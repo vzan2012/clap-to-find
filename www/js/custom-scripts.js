@@ -6,6 +6,13 @@ let audioCtx,
 let isListening = false;
 
 const playBeep = () => {
+  // --- PLAY NATIVE ALARM ON PHONE ---
+  if (window.AndroidAlarm) {
+    window.AndroidAlarm.playAlarm();
+    return; // Exit here so it doesn't play the beep sound too
+  }
+
+  // Fallback beep for computer browser testing:
   if (!audioCtx) {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   }
@@ -36,6 +43,11 @@ const stopListening = () => {
   isListening = false;
   if (audioStream) {
     audioStream.getTracks().forEach((track) => track.stop());
+  }
+
+  // --- STOP NATIVE ALARM ON PHONE ---
+  if (window.AndroidAlarm) {
+    window.AndroidAlarm.stopAlarm();
   }
 
   btnStartListener.innerText = "Activate Listener";
